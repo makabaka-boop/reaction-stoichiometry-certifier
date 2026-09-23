@@ -1,0 +1,14 @@
+services:
+  api:
+    build: ./backend
+    container_name: balancing-api
+    ports:
+      - "8000:8000"
+
+  web:
+    build: ./web
+    container_name: balancing-web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
